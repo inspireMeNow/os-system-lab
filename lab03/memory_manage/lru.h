@@ -20,6 +20,7 @@ int find_max_time()
 
 void LRU()
 {
+    memory_page.clear();
     int insufficient = 0;
     Page current_page;
     for (int i = 0; i < INST_SIZE; i++)
@@ -77,7 +78,7 @@ void LRU()
         }
         std::cout << std::endl;
     }
-    std::cout << "命中" << INST_SIZE - insufficient << "次，缺页" << insufficient << "次" << std::endl;
+    std::cout << "命中" << INST_SIZE - insufficient << "次，缺页" << insufficient << "次，缺页率为" << (double)insufficient / INST_SIZE << std::endl; 
 }
 
 #endif

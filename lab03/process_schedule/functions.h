@@ -6,7 +6,7 @@
 void process_schedule()
 {
     std::cout << "请输入要使用的功能（按0退出）" << std::endl;
-    std::cout << "1.进程同步与互斥" << std::endl;
+    std::cout << "1.生产者与消费者问题" << std::endl;
     std::cout << "2.进程调度" << std::endl;
     int choice;
     std::cin >> choice;

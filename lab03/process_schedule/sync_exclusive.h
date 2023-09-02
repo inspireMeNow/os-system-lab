@@ -28,6 +28,7 @@ void Producer()
         }
         i++;
     }
+    std::cout << "生产者进程终止！" << std::endl;
 }
 void Consumer()
 {
@@ -46,6 +47,7 @@ void Consumer()
         }
         i++;
     }
+    std::cout << "消费者进程终止！" << std::endl;
 }
 int tStop()
 {

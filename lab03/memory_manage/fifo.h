@@ -20,12 +20,14 @@ int check_deque(int current_page)
 
 void FIFO()
 {
+    memory_page.clear();
     int insufficient = 0;
     Page current_page;
     for (int i = 0; i < INST_SIZE; i++)
     {
         current_page.page_num = inst[i] / PAGE_SIZE;
-        std::cout << "访问的指令所在页表为：" << current_page.page_num << "，";
+        std::cout << "指令所在地址为：" << inst[i] << "，";
+        std::cout << "所在页表为：" << current_page.page_num << "，";
         if (memory_page.size() >= 3)
         {
             if (check_deque(current_page.page_num))
@@ -54,7 +56,7 @@ void FIFO()
         }
         std::cout << std::endl;
     }
-    std::cout << "命中" << INST_SIZE - insufficient << "次，缺页" << insufficient << "次" << std::endl;
+    std::cout << "命中" << INST_SIZE - insufficient << "次，缺页" << insufficient << "次，缺页率为" << (double)insufficient / INST_SIZE << std::endl;
 }
 
 #endif
