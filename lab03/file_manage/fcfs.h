@@ -1,5 +1,5 @@
-#ifndef FCFS_H
-#define FCFS_H
+#ifndef FCFS_FILE_H
+#define FCFS_FILE_H
 
 #include "disk.h"
 

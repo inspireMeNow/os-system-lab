@@ -1,7 +1,7 @@
 #include "fifo.h"
 #include "lru.h"
 
-int main()
+void memory_manage()
 {
     init_inst();
     int total_page = init_page();
@@ -21,6 +21,4 @@ int main()
     default:
         break;
     }
-
-    return 0;
 }

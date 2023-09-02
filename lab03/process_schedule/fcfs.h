@@ -1,5 +1,5 @@
-#ifndef FCFS_H
-#define FCFS_H
+#ifndef FCFS_PROC_H
+#define FCFS_PROC_H
 #include "pcb.h"
 
 bool compare_arrive_time(PCB a, PCB b)
@@ -26,4 +26,5 @@ std::vector<PCB> FCFS(std::vector<PCB> pcb) // FCFS算法
     }
     return pcb;
 }
+
 #endif

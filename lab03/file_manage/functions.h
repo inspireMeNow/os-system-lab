@@ -1,6 +1,6 @@
 #include "compare.h"
 
-int main()
+void file_manage()
 {
     std::cout << "磁盘调度算法\n";
     std::cout << "请输入要使用的算法（按0退出）\n";
@@ -37,5 +37,4 @@ int main()
     default:
         break;
     }
-    return 0;
 }
