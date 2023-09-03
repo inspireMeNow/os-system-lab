@@ -65,7 +65,6 @@ std::vector<PCB> high_priority_schedule(std::vector<PCB> pcb) // 高优先级优
             time += waiting[index].need_time;
             waiting[index].need_time = 0;
         }
-        running.clear();
         if (waiting[index].need_time <= 0)
         {
             waiting[index].status = "F";
@@ -86,10 +85,11 @@ std::vector<PCB> high_priority_schedule(std::vector<PCB> pcb) // 高优先级优
         print_pcb(finishing);
         std::cout << "\n"
                   << std::endl;
-        if(!temp_pcb.empty())
+        running.clear();
+        if (!temp_pcb.empty())
         {
             int min_index = find_min_arrive_time(temp_pcb);
-            if(temp_pcb[min_index].arrive_time <= time)
+            if (temp_pcb[min_index].arrive_time <= time)
             {
                 waiting.push_back(temp_pcb[min_index]);
                 temp_pcb.erase(temp_pcb.begin() + min_index);

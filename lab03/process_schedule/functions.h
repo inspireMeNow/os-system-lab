@@ -51,15 +51,15 @@ void process_schedule()
         {
         case 1:
             pcb = FCFS(pcb);
-            print_pcb_status(pcb, choice);
+            print_pcb_status(pcb, temp_choice);
             break;
         case 2:
             pcb = SJF(pcb);
-            print_pcb_status(pcb, choice);
+            print_pcb_status(pcb, temp_choice);
             break;
         case 3:
             pcb = high_priority_schedule(pcb);
-            print_pcb_status(pcb, choice);
+            print_pcb_status(pcb, temp_choice);
         default:
             break;
         }
