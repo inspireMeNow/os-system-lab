@@ -5,7 +5,7 @@
 #include <iomanip>
 #include <vector>
 
-#define TIME_SLICE 1 // 时间片大小
+#define TIME_SLICE 2 // 时间片大小
 
 typedef struct PCB
 {

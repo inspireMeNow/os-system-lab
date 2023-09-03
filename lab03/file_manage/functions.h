@@ -12,11 +12,14 @@ void file_manage()
     std::cout << "请输入你的选择的算法（输入 0 离开）\n";
     int choice;
     std::cin >> choice;
-    if (choice >= 1 && choice <= 5)
+    while (choice < 0 || choice > 5)
     {
-        std::cout << "从" << MAX_DISK_TRACK / 2 << "号磁道开始\n";
-        get_disk_track();
+        fflush(stdin);
+        std::cout << "输入错误，请重新输入！" << std::endl;
+        std::cin >> choice;
     }
+    std::cout << "从" << MAX_DISK_TRACK / 2 << "号磁道开始\n";
+    get_disk_track();
     switch (choice)
     {
     case 1:

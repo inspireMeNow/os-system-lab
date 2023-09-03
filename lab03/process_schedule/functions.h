@@ -10,6 +10,12 @@ void process_schedule()
     std::cout << "2.进程调度" << std::endl;
     int choice;
     std::cin >> choice;
+    while (choice < 0 || choice > 2)
+    {
+        fflush(stdin);
+        std::cout << "输入错误，请重新输入！" << std::endl;
+        std::cin >> choice;
+    }
     if (choice == 1)
     {
         sync_exclusive();
@@ -23,38 +29,35 @@ void process_schedule()
         std::cout << "1.先来先服务" << std::endl;
         std::cout << "2.短作业优先" << std::endl;
         std::cout << "3.高优先级优先" << std::endl;
-        std::cin >> choice;
+        int temp_choice;
+        std::cin >> temp_choice;
+        while (temp_choice < 0 || temp_choice > 3)
+        {
+            fflush(stdin);
+            std::cout << "输入错误，请重新输入！" << std::endl;
+            std::cin >> temp_choice;
+        }
         std::vector<PCB> pcb;
         PCB p;
-        switch (choice)
+        std::cout << "请输入进程名、到达时间、服务时间" << std::endl;
+        for (int i = 0; i < n; i++)
+        {
+            std::cin >> p.id >> p.arrive_time >> p.serve_time;
+            p.priority = 50 - p.serve_time;
+            p.need_time = p.serve_time;
+            pcb.push_back(p);
+        }
+        switch (temp_choice)
         {
         case 1:
-            std::cout << "请输入进程名、到达时间、服务时间" << std::endl;
-            for (int i = 0; i < n; i++)
-            {
-                std::cin >> p.id >> p.arrive_time >> p.serve_time;
-                pcb.push_back(p);
-            }
             pcb = FCFS(pcb);
             print_pcb_status(pcb, choice);
             break;
         case 2:
-            std::cout << "请输入进程名、到达时间、服务时间" << std::endl;
-            for (int i = 0; i < n; i++)
-            {
-                std::cin >> p.id >> p.arrive_time >> p.serve_time;
-                pcb.push_back(p);
-            }
             pcb = SJF(pcb);
             print_pcb_status(pcb, choice);
             break;
         case 3:
-            std::cout << "请输入进程名、服务时间" << std::endl;
-            for (int i = 0; i < n; i++)
-            {
-                std::cin >> p.id >> p.serve_time;
-                pcb.push_back(p);
-            }
             pcb = high_priority_schedule(pcb);
             print_pcb_status(pcb, choice);
         default:

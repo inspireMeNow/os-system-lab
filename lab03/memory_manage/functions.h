@@ -10,6 +10,12 @@ void memory_manage()
     std::cout << "3.两种算法比较" << std::endl;
     int choice;
     std::cin >> choice;
+    while (choice < 0 || choice > 3)
+    {
+        fflush(stdin);
+        std::cout << "输入错误，请重新输入！" << std::endl;
+        std::cin >> choice;
+    }
     switch (choice)
     {
     case 1:
@@ -25,6 +31,7 @@ void memory_manage()
         std::cout << "FIFO算法" << std::endl
                   << std::endl;
         FIFO();
+        std::cout << std::endl;
         std::cout << "LRU算法" << std::endl
                   << std::endl;
         LRU();
